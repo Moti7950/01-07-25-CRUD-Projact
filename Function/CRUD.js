@@ -5,13 +5,16 @@ export function Craete(key,value)
     return { key: value}
 }
 
-export function Read(path)
-{
-    readFile(path,"utf8",(err, data)=> {
-    if (err) return err;
+export function Read(filePath, cb) {
+  readFile(filePath, 'utf8', (err, data) => {
+    if (err) {
+      console.log(err);
+      cb();
+      return;
+    }
     console.log(data);
-    return "End.";
-});
+    cb();
+  });
 }
 
 export function Update()

@@ -3,21 +3,20 @@ import { ask } from './Function/GetInputFromUser.js';
 import { Read } from "./Function/CRUD.js"
 import { Craete } from "./Function/CRUD.js"
 
-function menu()
-{
+function Menu() {
     console.log("Please select from the menu:");
     ask("1. Craete\n2. Read DB\n3. Update\n4. Delate\n5. Exit\n> ", (answer) => {
         switch (answer) {
             case "1":
                 console.log("Starting the program...");
-                ask("Hi ", (answer1) => {
-                    console.log(typeof answer1, answer1);
-                    menu()
-                });
                 break;
             case "2":
                 console.log("Reading the DB 😃");
-                console.log(typeof answer, answer);
+                Read("./DB/Data_base.txt",()=>
+                ask("x", (y) => {
+                    console.log("Hi from block 2")
+                    Menu()
+                }))
                 break;
             case "3":
                 console.log("Goodbye!");
@@ -31,6 +30,6 @@ function menu()
             default:
                 console.log("Invalid option.");
         }
-    })
+    });
 }
-menu()
+Menu()
