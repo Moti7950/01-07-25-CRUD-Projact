@@ -7,7 +7,7 @@ export function ask(question, cb) {
   });
 
   rl.question(question, (answer) => {
-    cb(answer);      // שלח את הקלט לפונקציית callback
-    rl.close();      // סגור את הממשק אחרי שהמשתמש ענה
+    cb(answer);
+    rl.close();
   });
 }
